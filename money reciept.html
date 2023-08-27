@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Receipt</title>
+    <style>
+        /* Your CSS styles here */
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .voucher {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .voucher h2 {
+            margin-top: 0;
+        }
+        .voucher p {
+            margin: 5px 0;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+         @media print {
+            /* Hide the "Print" button on printed pages */
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <!-- Your Money Receipt content here -->
+        <h1>Money Receipt</h1>
+        <form>
+            <label for="receiptDate">Date:</label>
+            <input type="text" id="receiptDate" name="receiptDate" value="" readonly>
+
+            <label for="receivedFrom">Received From:</label>
+            <input type="text" id="receivedFrom" name="receivedFrom">
+
+            <label for="receiptAmount">Amount:</label>
+            <input type="text" id="receiptAmount" name="receiptAmount">
+
+            <label for="receiptMethod">Payment Method:</label>
+            <input type="text" id="receiptMethod" name="receiptMethod">
+
+            <button class="print-button" onclick="printPage()">Print Money Receipt</button>
+        </form>
+    </div>
+
+    <!-- Your JavaScript here -->
+    <script>
+        function printPage() {
+            // Hide the "Print" button before printing
+            document.querySelector('.print-button').style.display = 'none';
+            // Print the document
+            window.print();
+            // Restore the "Print" button after printing is done
+            document.querySelector('.print-button').style.display = 'block';
+        }
+
+        // Get the current date in the format yyyy-mm-dd
+        function getCurrentDate() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+        // Populate date field with current date
+        document.getElementById('receiptDate').value = getCurrentDate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add New Account</h1>
+        <form action="submit_account.php" method="post">
+            <label for="accountName">Account Name:</label>
+            <input type="text" id="accountName" name="accountName" required>
+
+            <label for="accountNumber">Account Number:</label>
+            <input type="text" id="accountNumber" name="accountNumber" required>
+
+            <label for="accountCode">Account Code:</label>
+            <input type="text" id="accountCode" name="accountCode" required>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required>
+
+            <label for="currency">Currency:</label>
+            <select id="currency" name="currency">
+                <option value="BHD">Bahraini Dinar (BHD)</option>
+            </select>
+
+            <label for="accountDetails">Account Details:</label>
+            <textarea id="accountDetails" name="accountDetails" rows="4" required></textarea>
+
+            <label for="accountAlias">Account Alias:</label>
+            <input type="text" id="accountAlias" name="accountAlias" required>
+
+            <button type="submit">Add Account</button>
+        </form>
+    </div>
+</body>
+</html>
